@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tdl"
+    }
+  },
+  "defaultProject": "tdl",
+  "cli": {
+    "analytics": "d155efd6-2fc1-4b68-9b75-48916570dfb3"
+  }
 }
