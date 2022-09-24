@@ -39,13 +39,13 @@ export class TodoListComponent implements DoCheck {
   // }
 
   public async deleteAll() {
-    const result = await Swal.fire('Ooops!', 'Deseja apagar toda a lista? 🤔', 'question')
+    const result = await Swal.fire('Ooops!', 'Deseja apagar toda a lista?', 'question')
     if (result.isConfirmed) {
       this.taskList = [];
-      await Swal.fire('Ótimo!', 'Agora, você pode inserir novas atividades. 😎', 'success');
+      await Swal.fire('Ótimo!', 'Agora, você pode inserir novas atividades.', 'success');
     }
     else {
-      await Swal.fire('Não finalizou tudo?', 'Quando finalizar é só voltar aqui! 😊', 'info');
+      await Swal.fire('Não finalizou tudo?', 'Quando finalizar é só voltar aqui!', 'info');
     }
   }
 

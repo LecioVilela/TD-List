@@ -21,7 +21,7 @@ export class TodoInputAddItensComponent implements OnInit {
     this.addItemTask = this.addItemTask.trim()
 
     if (!this.addItemTask) {
-      await Swal.fire('Ooops!', 'Parece que você ainda não informou a nova atividade... 😁', 'info');
+      await Swal.fire('Ooops!', 'Parece que você ainda não informou a nova atividade...', 'info');
       this.addItemTask = "";
     }
     else {
