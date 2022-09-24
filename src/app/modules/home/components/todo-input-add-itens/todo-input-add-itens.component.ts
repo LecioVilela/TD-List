@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-todo-input-add-itens',
@@ -15,9 +16,17 @@ export class TodoInputAddItensComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public submitItemTask() {
-    this.emmitTask.emit(this.addItemTask);
-    this.addItemTask = "";
-  }
+  public async submitItemTask() {
 
+    this.addItemTask = this.addItemTask.trim()
+
+    if (!this.addItemTask) {
+      await Swal.fire('Ooops!', 'Parece que você ainda não informou a nova atividade... 😁', 'info');
+      this.addItemTask = "";
+    }
+    else {
+      this.emmitTask.emit(this.addItemTask);
+      this.addItemTask = "";
+    }
+  }
 }
