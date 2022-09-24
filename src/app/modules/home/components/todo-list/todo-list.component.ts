@@ -11,13 +11,12 @@ import Swal from 'sweetalert2';
 })
 export class TodoListComponent implements DoCheck {
 
-  public taskList: Array<TaskList> = [];
+  public taskList: Array<TaskList> = JSON.parse(localStorage.getItem("list") || '[]');
 
   constructor() { }
 
   ngDoCheck() {
-    this.taskList.sort((first, last) =>
-      Number(first.checked) - Number(last.checked));
+    this.setLocalStorage();
   }
 
   public async setEmitTask(event: string) {
@@ -61,5 +60,11 @@ export class TodoListComponent implements DoCheck {
         await Swal.fire('Tudo bem então!', 'Mas preciso que você informe uma descrição...', 'info');
       }
     }
+  }
+
+  public setLocalStorage() {
+    this.taskList.sort((first, last) =>
+      Number(first.checked) - Number(last.checked));
+    localStorage.setItem("list", JSON.stringify(this.taskList));
   }
 }
